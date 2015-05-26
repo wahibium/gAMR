@@ -68,9 +68,9 @@
 #define M_PI (3.1415926535897932384626)
 #endif
 
-  
-#define bdimx (BLOCK_X)
-#define bdimy (BLOCK_Y)
+
+#define bdimx (block_x)
+#define bdimy (block_y)
 #define SHIFT3(x, y, z) x = y; y = z
 #define SHIFT4(x, y, z, k) x = y; y = z; z = k
 
