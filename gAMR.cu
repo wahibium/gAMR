@@ -35,6 +35,13 @@
 #else
 #define LDG(x) (x)
 #endif
+  
+#define GET(x) (x)
+
+#define bdimx (BLOCK_X)
+#define bdimy (BLOCK_Y)
+#define SHIFT3(x, y, z) x = y; y = z
+#define SHIFT4(x, y, z, k) x = y; y = z; z = k
 
 
 #define diffusion_backward()                                            \
