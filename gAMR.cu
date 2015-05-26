@@ -38,12 +38,6 @@
   
 #define GET(x) (x)
 
-#define bdimx (BLOCK_X)
-#define bdimy (BLOCK_Y)
-#define SHIFT3(x, y, z) x = y; y = z
-#define SHIFT4(x, y, z, k) x = y; y = z; z = k
-
-
 #define diffusion_backward()                                            \
   do {                                                                  \
     sb[ps] = s2;                                                        \
@@ -73,6 +67,12 @@
 #ifndef M_PI
 #define M_PI (3.1415926535897932384626)
 #endif
+
+  
+#define bdimx (BLOCK_X)
+#define bdimy (BLOCK_Y)
+#define SHIFT3(x, y, z) x = y; y = z
+#define SHIFT4(x, y, z, k) x = y; y = z; z = k
 
 using std::vector;
 using std::string;
@@ -650,7 +650,7 @@ void InitializeBenchmark() {
   CUDA_SAFE_CALL(cudaMalloc((void**)&f1_d, s));
   CUDA_SAFE_CALL(cudaMalloc((void**)&f2_d, s));
   //CUDA_SAFE_CALL(cudaFuncSetCacheConfig(diffusion_kernel_shared,
-                                        cudaFuncCachePreferL1));
+                                        //cudaFuncCachePreferL1));
   CUDA_SAFE_CALL(cudaFuncSetCacheConfig(diffusion_kernel_shared6,
                                         cudaFuncCachePreferShared));
   CUDA_SAFE_CALL(cudaEventCreate(&ev1_));
