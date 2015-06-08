@@ -1,0 +1,37 @@
+Steps of AMR
+
+      Init Mesh with values
+	  FOR (Time Integration)
+        Execute stencil operation in all blocks
+        IF (Time for regridding)
+        		Execute error function on all blocks
+        		Coarse
+        		Refine
+        		Balance tree		\COMMENT{more refinement}
+        ENDIF
+        IF (Time for load balancing)
+        		Gather data about loads
+        		Identify movement towards over-loaded PEs
+        		Migrate blocks to balance loads
+        ENDIF
+     ENDFOR
+
+
+
+
+
+refine 
+    - Interpolate similar to LBM
+    - Use 8 different arrays
+coarse
+    - For recursive coarse, it's a "reduce operation"
+    - For non-recursive coarse, it's a partial reduce operation
+operation
+error
+    - When a cell is above thershold, don't eval. other cells in the block (i.e. abort)
+
+
+
+
+
+
